@@ -4,8 +4,7 @@ namespace MessageBoard.Models
 {
     public class MessageBoardContext : DbContext
     {
-        public MessageBoardContext(DbContextOptions<MessageBoardContext> options)
-            : base(options)
+        public MessageBoardContext(DbContextOptions<MessageBoardContext> options) : base(options)
         {
         }
 

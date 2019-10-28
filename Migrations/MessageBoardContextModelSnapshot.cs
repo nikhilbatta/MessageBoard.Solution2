@@ -35,6 +35,8 @@ namespace MessageBoard.Solution.Migrations
 
                     b.Property<string>("Body");
 
+                    b.Property<string>("DateOfPost");
+
                     b.Property<int>("GroupId");
 
                     b.Property<string>("Title");

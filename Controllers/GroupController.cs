@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace MessageBoard.Controllers
 {
@@ -23,8 +24,20 @@ namespace MessageBoard.Controllers
 
         // GET api/group
         [HttpGet]
-        public ActionResult<IEnumerable<Group>> Get()
+        public ActionResult<IEnumerable<Group>> Get(string startTime, string endTime)
         {
+           if(String.IsNullOrEmpty(startTime) && String.IsNullOrEmpty(endTime))
+           {
+
+
+
+
+           } 
+            
+            
+            
+            
+            
             return _db.Groups.Include(g => g.Posts).ToList();
         }
 
@@ -38,7 +51,7 @@ namespace MessageBoard.Controllers
 
         // // GET api/group/{"groupId"}
         [HttpGet("{groupId}")]
-        public ActionResult<IEnumerable <Post>> Get(int groupId)
+        public ActionResult<IEnumerable<Post>> Get(int groupId)
         {
             return _db.Posts.Where(p => p.GroupId == groupId).ToList();
         }
@@ -47,16 +60,25 @@ namespace MessageBoard.Controllers
         [HttpPost("{groupId}")]
         public void Post([FromBody] Post post, int groupId)
         {
-            
-            if(_db.Groups.Any(group => group.GroupId == groupId))
+            if (_db.Groups.Any(group => group.GroupId == groupId))
             {
+                
                 post.GroupId = groupId;
                 _db.Posts.Add(post);
                 _db.SaveChanges();
             }
         }
+
+        [HttpPut("{id}/{name}")]
+        public void Put(int id, string name,[FromBody] Post updatedPost)
+        { 
+            Post foundPost = _db.Posts.FirstOrDefault(p => p.PostId == id);
+            if(foundPost.UserName == name)
+            {
+                updatedPost.PostId = id;
+                _db.Entry(updatedPost).State = EntityState.Modified;
+                _db.SaveChanges();
+            }
+        }
     }
-
-
-
 }

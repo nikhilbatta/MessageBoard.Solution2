@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MessageBoard.Solution.Migrations
 {
-    public partial class Initial : Migration
+    public partial class es : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -29,7 +29,8 @@ namespace MessageBoard.Solution.Migrations
                     Title = table.Column<string>(nullable: true),
                     Body = table.Column<string>(nullable: true),
                     GroupId = table.Column<int>(nullable: false),
-                    UserName = table.Column<string>(nullable: true)
+                    UserName = table.Column<string>(nullable: true),
+                    DateOfPost = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

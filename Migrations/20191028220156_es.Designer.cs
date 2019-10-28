@@ -8,8 +8,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MessageBoard.Solution.Migrations
 {
     [DbContext(typeof(MessageBoardContext))]
-    [Migration("20191028174007_Initial")]
-    partial class Initial
+    [Migration("20191028220156_es")]
+    partial class es
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,6 +36,8 @@ namespace MessageBoard.Solution.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Body");
+
+                    b.Property<string>("DateOfPost");
 
                     b.Property<int>("GroupId");
 

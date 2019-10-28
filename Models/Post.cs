@@ -1,3 +1,4 @@
+
 namespace MessageBoard.Models
 {
     public class Post
@@ -7,5 +8,6 @@ namespace MessageBoard.Models
         public string Body {get; set; }
         public int GroupId {get; set; }
         public string UserName {get; set; }
+        public string DateOfPost {get; set; } 
     }
 }
