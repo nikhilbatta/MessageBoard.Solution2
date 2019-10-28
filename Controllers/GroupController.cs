@@ -26,18 +26,19 @@ namespace MessageBoard.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<Group>> Get(string startTime, string endTime)
         {
-           if(String.IsNullOrEmpty(startTime) && String.IsNullOrEmpty(endTime))
+           if(!String.IsNullOrEmpty(startTime) && !String.IsNullOrEmpty(endTime))
            {
+               //string queryable
 
+               //search
 
+               //query
 
+               //string
 
-           } 
-            
-            
-            
-            
-            
+               //object
+           }
+           
             return _db.Groups.Include(g => g.Posts).ToList();
         }
 
