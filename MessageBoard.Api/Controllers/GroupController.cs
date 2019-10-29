@@ -13,7 +13,8 @@ using System;
 
 namespace MessageBoard.Controllers
 {
-    
+    // removed authorize so api call will work.
+    // implement back in after learning authentication.
     [Route("api/[controller]")]
     [ApiController]
     public class GroupController : ControllerBase

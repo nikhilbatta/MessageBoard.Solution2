@@ -40,6 +40,7 @@ namespace MessageBoard.Controllers
             }
             return query.ToList();
         }
+
         [HttpPut("{id}/{name}")]
         public void Put(int id, string name,[FromBody] Post updatedPost)
         { 
@@ -50,6 +51,14 @@ namespace MessageBoard.Controllers
                 _db.Entry(updatedPost).State = EntityState.Modified;
                 _db.SaveChanges();
             }
+        }
+
+        [HttpPost("{id}")]
+        public void Post([FromBody] Post post, int groupId)
+        {
+            post.GroupId = groupId;
+            _db.Posts.Add(post);
+            _db.SaveChanges();
         }
     }
 }

@@ -9,6 +9,7 @@ namespace MessageBoard.Models
         public int GroupId {get; set; }
         public string UserName {get; set; }
         public string DateOfPost {get; set; } 
-        public User user {get; set;}
+        public User user {get; set;}  
     }
+
 }

@@ -8,6 +8,8 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using MessageBoard.Entities;
 using MessageBoard.Helpers;
+using MessageBoard.Models;
+using MessageBoard.Entities;
 
 namespace MessageBoard.Services
 {
@@ -19,17 +21,17 @@ namespace MessageBoard.Services
 
     public class UserService : IUserService
     {
+        private readonly MessageBoardContext _db;
         // users hardcoded for simplicity, store in a db with hashed passwords in production applications
-        private List<User> _users = new List<User>
-        { 
-            new User { Id = 1, FirstName = "Test", LastName = "User", Username = "test", Password = "test" } 
-        };
+        private List<User> _users;       
 
         private readonly AppSettings _appSettings;
 
-        public UserService(IOptions<AppSettings> appSettings)
+        public UserService(IOptions<AppSettings> appSettings, MessageBoardContext db)
         {
             _appSettings = appSettings.Value;
+            _db = db;
+            _users = _db.Users.ToList();
         }
 
         public User Authenticate(string username, string password)
