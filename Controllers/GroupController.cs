@@ -1,16 +1,19 @@
 using MessageBoard.Models;
+using MessageBoard.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
 using System.Linq;
 using System;
 
 namespace MessageBoard.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class GroupController : ControllerBase
@@ -22,26 +25,7 @@ namespace MessageBoard.Controllers
             _db = db;
         }
 
-        // GET api/group
-        [HttpGet]
-        public ActionResult<IEnumerable<Group>> Get(string startTime, string endTime)
-        {
-           if(!String.IsNullOrEmpty(startTime) && !String.IsNullOrEmpty(endTime))
-           {
-               //string queryable
-
-               //search
-
-               //query
-
-               //string
-
-               //object
-           }
-           
-            return _db.Groups.Include(g => g.Posts).ToList();
-        }
-
+        
         // POST api/group
         [HttpPost]
         public void Post([FromBody] Group newGroup)
@@ -52,9 +36,9 @@ namespace MessageBoard.Controllers
 
         // // GET api/group/{"groupId"}
         [HttpGet("{groupId}")]
-        public ActionResult<IEnumerable<Post>> Get(int groupId)
+        public ActionResult<Group> Get(int groupId)
         {
-            return _db.Posts.Where(p => p.GroupId == groupId).ToList();
+            return _db.Groups.Include(p => p.Posts).FirstOrDefault(p => p.GroupId == groupId);
         }
 
         // POST api/group/{"groupId"}
@@ -70,16 +54,6 @@ namespace MessageBoard.Controllers
             }
         }
 
-        [HttpPut("{id}/{name}")]
-        public void Put(int id, string name,[FromBody] Post updatedPost)
-        { 
-            Post foundPost = _db.Posts.FirstOrDefault(p => p.PostId == id);
-            if(foundPost.UserName == name)
-            {
-                updatedPost.PostId = id;
-                _db.Entry(updatedPost).State = EntityState.Modified;
-                _db.SaveChanges();
-            }
-        }
+        
     }
 }

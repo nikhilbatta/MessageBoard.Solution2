@@ -23,14 +23,33 @@ namespace MessageBoard.Controllers
         }
         //GET api/group/?startString=*&?endString=*
         [HttpGet]
-        public ActionResult<IEnumerable<Post>> Get(string startstring, string endstring)
+        public ActionResult<IEnumerable<Post>> Get(string startstring, string endstring, string username)
         {
             var query = _db.Posts.AsQueryable();
-
-            Console.WriteLine(startstring);
-            Console.WriteLine(endstring);
-            query = query.Where(p => string.Compare(p.DateOfPost, startstring) >= 0 && string.Compare(p.DateOfPost, endstring) <= 0);
+            if(startstring != null)
+            {
+                query = query.Where(p => string.Compare(p.DateOfPost, startstring) >= 0);
+            }
+            if(endstring != null)
+            {
+                query = query.Where(p => string.Compare(p.DateOfPost, endstring) <= 0);
+            }
+            if(username!= null)
+            {
+                query = query.Where(p => p.UserName == username);
+            }
             return query.ToList();
+        }
+        [HttpPut("{id}/{name}")]
+        public void Put(int id, string name,[FromBody] Post updatedPost)
+        { 
+            Post foundPost = _db.Posts.FirstOrDefault(p => p.PostId == id);
+            if(foundPost.UserName == name)
+            {
+                updatedPost.PostId = id;
+                _db.Entry(updatedPost).State = EntityState.Modified;
+                _db.SaveChanges();
+            }
         }
     }
 }

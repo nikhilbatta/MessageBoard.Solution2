@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using MessageBoard.Entities;
 
 namespace MessageBoard.Models
 {
@@ -10,5 +11,6 @@ namespace MessageBoard.Models
 
         public DbSet<Post> Posts { get; set; }
         public DbSet<Group> Groups { get; set; }
+        public DbSet<User> Users {get;set;}
     }
 }
