@@ -2961,6 +2961,11 @@
   "RootNamespace": "MessageBoard.MVC",
   "Documents": [
     {
+      "FilePath": "Views/Groups/Index.cshtml",
+      "TargetPath": "Views/Groups/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Shared/_CookieConsentPartial.cshtml",
       "TargetPath": "Views/Shared/_CookieConsentPartial.cshtml",
       "FileKind": "mvc"

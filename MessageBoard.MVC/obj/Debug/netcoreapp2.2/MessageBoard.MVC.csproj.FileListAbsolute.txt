@@ -27,3 +27,4 @@
 /Users/Guest/Desktop/MessageBoard.Solution/MessageBoard.MVC/obj/Debug/netcoreapp2.2/MessageBoard.MVC.dll
 /Users/Guest/Desktop/MessageBoard.Solution/MessageBoard.MVC/obj/Debug/netcoreapp2.2/MessageBoard.MVC.pdb
 /Users/Guest/Desktop/MessageBoard.Solution/MessageBoard.MVC/obj/Debug/netcoreapp2.2/MessageBoard.MVC.csproj.CopyComplete
+/Users/Guest/Desktop/MessageBoard.Solution/MessageBoard.MVC/obj/Debug/netcoreapp2.2/Razor/Views/Group/Index.g.cshtml.cs
