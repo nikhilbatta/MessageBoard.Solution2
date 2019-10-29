@@ -13,7 +13,7 @@ using System;
 
 namespace MessageBoard.Controllers
 {
-    [Authorize]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class GroupController : ControllerBase
@@ -24,7 +24,11 @@ namespace MessageBoard.Controllers
         {
             _db = db;
         }
-
+        [HttpGet]
+        public ActionResult<IEnumerable<Group>> Get()
+        {
+            return _db.Groups.Include(p => p.Posts).ToList();
+        }
         
         // POST api/group
         [HttpPost]
