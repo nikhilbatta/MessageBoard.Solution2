@@ -9,6 +9,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using MessageBoard.Models;
 
 namespace MessageBoard.MVC
 {
@@ -32,7 +35,24 @@ namespace MessageBoard.MVC
             });
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+                services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+                services.AddEntityFrameworkMySql()
+                .AddDbContext<MessageBoardContext>(options => options
+                .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
+
+      //new code
+                services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<MessageBoardContext>()
+                .AddDefaultTokenProviders();
+                services.Configure<IdentityOptions>(options =>
+      {
+          options.Password.RequireDigit = false;
+          options.Password.RequiredLength = 0;
+          options.Password.RequireLowercase = false;
+          options.Password.RequireNonAlphanumeric = false;
+          options.Password.RequireUppercase = false;
+          options.Password.RequiredUniqueChars = 0;
+      });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +72,7 @@ namespace MessageBoard.MVC
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {

@@ -10,6 +10,7 @@ using MessageBoard.Entities;
 using MessageBoard.Helpers;
 using MessageBoard.Models;
 using MessageBoard.Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MessageBoard.Services
 {
@@ -17,6 +18,7 @@ namespace MessageBoard.Services
     {
         User Authenticate(string username, string password);
         IEnumerable<User> GetAll();
+        void Create(User user);
     }
 
     public class UserService : IUserService
@@ -61,6 +63,16 @@ namespace MessageBoard.Services
             user.Password = null;
 
             return user;
+        }
+        
+        public void Create(User newUser)
+        {
+            if(!_db.Users.Any( a => a.Username == newUser.Username))
+            {
+                _db.Users.Add(newUser);
+                _db.SaveChanges();
+            }
+            
         }
 
         public IEnumerable<User> GetAll()

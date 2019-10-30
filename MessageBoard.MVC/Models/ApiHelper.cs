@@ -20,11 +20,13 @@ namespace MessageBoard.Models
       var response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }
-
-
-
-
-
-
+    public static async Task<string> ApiCallNewUser()
+    {
+      RestClient client = new RestClient("http://localhost:400/users/create");
+      RestRequest request = new RestRequest(Method.POST);
+      var response = await client.ExecutePostTaskAsync(request);
+      return response.Content;
+      
+    }
   }
 }

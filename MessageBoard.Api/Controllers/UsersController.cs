@@ -40,13 +40,10 @@ namespace MessageBoard.Controllers
 
         [AllowAnonymous]
         [HttpPost("create")]
-        public void Create([FromBody]User user)
+        public IActionResult Create([FromBody]User user)
         {
-            if(!_db.Users.Any( a => a.Username == user.Username))
-            {
-                _db.Users.Add(user);
-                _db.SaveChanges();
-            }
+            _userService.Create(user);
+            return Ok(user);
         }
 
         [HttpGet]

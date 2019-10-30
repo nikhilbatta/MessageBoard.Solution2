@@ -1,5 +1,5 @@
 {
-  "FilePath": "/Users/Guest/Desktop/MessageBoard.Solution/MessageBoard.MVC/MessageBoard.MVC.csproj",
+  "FilePath": "/Users/Guest/Desktop/MessageBoard.Solution2/MessageBoard.MVC/MessageBoard.MVC.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -2961,8 +2961,13 @@
   "RootNamespace": "MessageBoard.MVC",
   "Documents": [
     {
-      "FilePath": "Views/Groups/Index.cshtml",
-      "TargetPath": "Views/Groups/Index.cshtml",
+      "FilePath": "Views/Group/CreateWay.cshtml",
+      "TargetPath": "Views/Group/CreateWay.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Administration/CreateRole.cshtml",
+      "TargetPath": "Views/Administration/CreateRole.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2973,6 +2978,11 @@
     {
       "FilePath": "Views/Home/Index.cshtml",
       "TargetPath": "Views/Home/Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Account/Register.cshtml",
+      "TargetPath": "Views/Account/Register.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -2998,6 +3008,16 @@
     {
       "FilePath": "Views/Shared/_Layout.cshtml",
       "TargetPath": "Views/Shared/_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Account/Login.cshtml",
+      "TargetPath": "Views/Account/Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "Views/Group/Index.cshtml",
+      "TargetPath": "Views/Group/Index.cshtml",
       "FileKind": "mvc"
     }
   ],

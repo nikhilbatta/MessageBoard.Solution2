@@ -12187,11 +12187,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Guest/Desktop/MessageBoard.Solution/MessageBoard.MVC/MessageBoard.MVC.csproj",
+      "projectUniqueName": "/Users/Guest/Desktop/MessageBoard.Solution2/MessageBoard.MVC/MessageBoard.MVC.csproj",
       "projectName": "MessageBoard.MVC",
-      "projectPath": "/Users/Guest/Desktop/MessageBoard.Solution/MessageBoard.MVC/MessageBoard.MVC.csproj",
+      "projectPath": "/Users/Guest/Desktop/MessageBoard.Solution2/MessageBoard.MVC/MessageBoard.MVC.csproj",
       "packagesPath": "/Users/Guest/.nuget/packages/",
-      "outputPath": "/Users/Guest/Desktop/MessageBoard.Solution/MessageBoard.MVC/obj/",
+      "outputPath": "/Users/Guest/Desktop/MessageBoard.Solution2/MessageBoard.MVC/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

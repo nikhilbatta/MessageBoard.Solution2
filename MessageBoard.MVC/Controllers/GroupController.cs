@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MessageBoard.MVC.Models;
 using MessageBoard.Models;
+using MessageBoard.Entities;
 
 namespace MessageBoard.MVC.Controllers
 {
@@ -22,5 +23,18 @@ namespace MessageBoard.MVC.Controllers
             
             return View();
         }
+        [HttpGet]
+        public IActionResult CreateWay()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreateWay(User1 newUser)
+        {
+            User1.CreateUser(newUser);
+            return RedirectToAction("Index");
+
+        }
+
     }
 }
