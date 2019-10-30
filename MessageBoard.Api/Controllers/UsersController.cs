@@ -9,7 +9,7 @@ using System;
 
 namespace MessageBoard.Controllers
 {
-    [Authorize]
+    // [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class UsersController : ControllerBase
@@ -30,6 +30,7 @@ namespace MessageBoard.Controllers
             Console.WriteLine(userParam.Username);
             Console.WriteLine(userParam.Password);
             var user = _userService.Authenticate(userParam.Username, userParam.Password);
+            System.Console.WriteLine();
 
             if (user == null)
                 return BadRequest(new { message = "Username or password is incorrect" });
@@ -42,6 +43,7 @@ namespace MessageBoard.Controllers
         [HttpPost("create")]
         public IActionResult Create([FromBody]User user)
         {
+            Console.WriteLine(user.Username);
             _userService.Create(user);
             return Ok(user);
         }

@@ -9,7 +9,6 @@ using Microsoft.IdentityModel.Tokens;
 using MessageBoard.Entities;
 using MessageBoard.Helpers;
 using MessageBoard.Models;
-using MessageBoard.Entities;
 using Microsoft.AspNetCore.Authorization;
 
 namespace MessageBoard.Services
@@ -67,11 +66,11 @@ namespace MessageBoard.Services
         
         public void Create(User newUser)
         {
-            if(!_db.Users.Any( a => a.Username == newUser.Username))
-            {
+            // if(!_db.Users.Any( a => a.Username == newUser.Username))
+            // {
                 _db.Users.Add(newUser);
                 _db.SaveChanges();
-            }
+            // }
             
         }
 

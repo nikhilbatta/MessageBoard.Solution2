@@ -62,3 +62,4 @@
 /Users/Guest/Desktop/MessageBoard.Solution2/MessageBoard.MVC/obj/Debug/netcoreapp2.2/MessageBoard.MVC.Views.pdb
 /Users/Guest/Desktop/MessageBoard.Solution2/MessageBoard.MVC/obj/Debug/netcoreapp2.2/MessageBoard.MVC.csproj.CopyComplete
 /Users/Guest/Desktop/MessageBoard.Solution2/MessageBoard.MVC/obj/Debug/netcoreapp2.2/Razor/Views/Group/CreateWay.g.cshtml.cs
+/Users/Guest/Desktop/MessageBoard.Solution2/MessageBoard.MVC/obj/Debug/netcoreapp2.2/Razor/Views/Group/Login.g.cshtml.cs

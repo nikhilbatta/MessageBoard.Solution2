@@ -1,3 +1,4 @@
+using MessageBoard.Entities;
 
 namespace MessageBoard.Models
 {
@@ -9,6 +10,6 @@ namespace MessageBoard.Models
         public int GroupId {get; set; }
         public string UserName {get; set; }
         public string DateOfPost {get; set; } 
-        public ApplicationUser user {get; set;}
+        public User1 user {get; set;}
     }
 }

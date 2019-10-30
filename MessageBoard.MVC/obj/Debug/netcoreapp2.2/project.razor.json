@@ -2981,6 +2981,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "Views/Group/Login.cshtml",
+      "TargetPath": "Views/Group/Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "Views/Account/Register.cshtml",
       "TargetPath": "Views/Account/Register.cshtml",
       "FileKind": "mvc"

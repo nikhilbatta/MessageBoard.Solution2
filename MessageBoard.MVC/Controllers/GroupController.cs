@@ -31,10 +31,22 @@ namespace MessageBoard.MVC.Controllers
         [HttpPost]
         public IActionResult CreateWay(User1 newUser)
         {
+            Console.WriteLine(newUser.Username);
             User1.CreateUser(newUser);
             return RedirectToAction("Index");
 
         }
-
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Login(User1 authenticate)
+        {
+            Console.WriteLine("this is from the login method" + authenticate.Username);
+            User1 foundUser = User1.GetUser(authenticate);
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using MessageBoard.Models;
 using System;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace MessageBoard.Entities
 {
@@ -17,11 +19,22 @@ namespace MessageBoard.Entities
         {
             this.Posts = new HashSet<Post> () ;
         }
-        public static void CreateUser(User1 newUser)
+        public static void CreateUser(User1 newOne)
         {
-           var apiCallTask = ApiHelper.ApiCallGroupIndex();
+           var apiCallTask = ApiHelper.ApiCallNewUser(newOne);
            var result = apiCallTask.Result;
            Console.WriteLine(result);
+        }
+        public static User1 GetUser(User1 loggedin)
+        {
+            Console.WriteLine(loggedin.Username);
+            var apiCallTask = ApiHelper.ApiGetUser(loggedin);
+            var result = apiCallTask.Result;
+            Console.WriteLine(result);
+            JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+            Console.WriteLine(jsonResponse);
+            User1 groupList = JsonConvert.DeserializeObject<User1>(jsonResponse.ToString());
+            return groupList;
         }
     }
 }
