@@ -56,6 +56,8 @@ namespace MessageBoard.Controllers
         [HttpPost("{id}")]
         public void Post([FromBody] Post post)
         {
+            Console.WriteLine("this got here");
+            Console.WriteLine(post.PostId);
             _db.Posts.Add(post);
             _db.SaveChanges();
         }

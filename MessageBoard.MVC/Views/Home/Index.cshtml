@@ -2,15 +2,6 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-@using MessageBoard.Models;
-@foreach(Group group in Model)
-{
-    <p>@group.Title</p>
-    @foreach(Post post in group.Posts)
-    {
-        <p>@post.Body</p>
-    }
-}
 
 
     <!DOCTYPE html>  

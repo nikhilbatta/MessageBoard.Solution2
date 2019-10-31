@@ -12,8 +12,9 @@ namespace MessageBoard.MVC.Controllers
 {
     public class GroupController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(User1 foundUser)
         {
+            Console.WriteLine("this is from the index" + foundUser.Token);
             var allGroups = Group.GetAllGroups();
             return View(allGroups);
         }
@@ -34,7 +35,6 @@ namespace MessageBoard.MVC.Controllers
             Console.WriteLine(newUser.Username);
             User1.CreateUser(newUser);
             return RedirectToAction("Index");
-
         }
         [HttpGet]
         public IActionResult NewPost(int id)
@@ -62,7 +62,7 @@ namespace MessageBoard.MVC.Controllers
         {
             Console.WriteLine("this is from the login method" + authenticate.Username);
             User1 foundUser = User1.GetUser(authenticate);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", foundUser);
         }
     }
 }

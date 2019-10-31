@@ -2,14 +2,16 @@
 using MessageBoard.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MessageBoard.Solution.Migrations
 {
     [DbContext(typeof(MessageBoardContext))]
-    partial class MessageBoardContextModelSnapshot : ModelSnapshot
+    [Migration("20191031224105_Another")]
+    partial class Another
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,15 +63,15 @@ namespace MessageBoard.Solution.Migrations
 
                     b.Property<string>("Title");
 
-                    b.Property<string>("UserName");
+                    b.Property<int>("USERID");
 
-                    b.Property<int>("userID");
+                    b.Property<string>("UserName");
 
                     b.HasKey("PostId");
 
                     b.HasIndex("GroupId");
 
-                    b.HasIndex("userID");
+                    b.HasIndex("USERID");
 
                     b.ToTable("Posts");
                 });
@@ -81,9 +83,9 @@ namespace MessageBoard.Solution.Migrations
                         .HasForeignKey("GroupId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("MessageBoard.Entities.User", "loggedIn")
+                    b.HasOne("MessageBoard.Entities.User", "user")
                         .WithMany("Posts")
-                        .HasForeignKey("userID")
+                        .HasForeignKey("USERID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

@@ -51,8 +51,16 @@ namespace MessageBoard.Models
     {
       RestClient client = new RestClient("http://localhost:4000/api");
       RestRequest request = new RestRequest("/post/{id}", Method.POST);
-      request.AddUrlSegment("id", post.GroupId);
       request.AddJsonBody(post);
+      request.AddUrlSegment("id", post.GroupId);
+      var response = await client.ExecuteTaskAsync(request);
+      return response.Content;
+    }
+    public static async Task<string> ApiNewGroup(Group group)
+    {
+      RestClient client = new RestClient("http://localhost:4000/api/group");
+      RestRequest request = new RestRequest(Method.POST);
+      request.AddJsonBody(group);
       var response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }

@@ -1,6 +1,6 @@
 @using MessageBoard.Models;
 
-@foreach(Group group in Model)
+@foreach(Group group in @Model)
 {
     <p>@Html.ActionLink($"{@group.Title}", "Details", new { id = group.GroupId}) </p>
 }

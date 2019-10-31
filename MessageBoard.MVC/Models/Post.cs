@@ -10,6 +10,7 @@ namespace MessageBoard.Models
         public int GroupId {get; set; }
         public string UserName {get; set; }
         public string DateOfPost {get; set; } 
+        public int ID {get;set;}
         public User1 user {get; set;}
 
        

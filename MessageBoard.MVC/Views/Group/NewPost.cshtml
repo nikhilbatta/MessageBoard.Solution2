@@ -2,6 +2,7 @@
 
 @using (Html.BeginForm())
 {
+    
     @Html.LabelFor(model => model.Title)
     @Html.TextBoxFor(model => model.Title)
     @Html.LabelFor(model => model.Body)
@@ -11,7 +12,9 @@
     @Html.LabelFor(model => model.DateOfPost)
     @Html.TextBoxFor(model => model.DateOfPost)
     <input id="GroupId" name="GroupId" type="hidden" value="@ViewBag.Data" />
-    @Html.TextBoxFor(model => model.user.Id)
+    @Html.LabelFor(model => model.Title)
+    @Html.HiddenFor(model => model.userId)
 
     <input type="submit" value="Add new item" class="btn btn-default" />
 }
+<p>@ViewBag.Data</p>

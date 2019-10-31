@@ -65,3 +65,4 @@
 /Users/Guest/Desktop/MessageBoard.Solution2/MessageBoard.MVC/obj/Debug/netcoreapp2.2/Razor/Views/Home/Index.g.cshtml.cs
 /Users/Guest/Desktop/MessageBoard.Solution2/MessageBoard.MVC/obj/Debug/netcoreapp2.2/Razor/Views/Group/Details.g.cshtml.cs
 /Users/Guest/Desktop/MessageBoard.Solution2/MessageBoard.MVC/obj/Debug/netcoreapp2.2/Razor/Views/Group/NewPost.g.cshtml.cs
+/Users/Guest/Desktop/MessageBoard.Solution2/MessageBoard.MVC/obj/Debug/netcoreapp2.2/Razor/Views/Shared/_MapPartial.g.cshtml.cs

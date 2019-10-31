@@ -37,5 +37,13 @@ namespace MessageBoard.Models
             return specificgroup;
             
         }
+        public static void CreateNewGroup(Group newGroup)
+        {
+            var apiCallTask = ApiHelper.ApiNewGroup(newGroup);
+            var result = apiCallTask.Result;
+            JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+            Group specificgroup = JsonConvert.DeserializeObject<Group>(jsonResponse.ToString());
+            
+        }
     }
 }
