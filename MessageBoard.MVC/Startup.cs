@@ -54,6 +54,24 @@ namespace MessageBoard.MVC
     //       options.Password.RequiredUniqueChars = 0;
     //   });
         }
+        
+        // private void ConfigureOAuthTokenConsumption(IApplicationBuilder app)
+        // {
+        //     var issuer = ConfigurationManager.AppSettings["Issuer"];
+        //     var audienceId = ConfigurationManager.AppSettings["AudienceId"];
+        //     var audienceSecret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["AudienceSecret"]);
+
+        //     // Api controllers with an [Authorize] attribute will be validated with JWT
+        //     app.UseJwtBearerAuthentication(new JwtBearerAuthenticationOptions
+        //     {
+        //         AuthenticationMode = AuthenticationMode.Active,
+        //         AllowedAudiences = new[] { audienceId },
+        //         IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
+        //         {
+        //             new SymmetricKeyIssuerSecurityTokenProvider(issuer, audienceSecret) 
+        //         }
+        //     });
+        // }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

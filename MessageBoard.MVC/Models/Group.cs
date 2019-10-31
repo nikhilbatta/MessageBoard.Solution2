@@ -28,5 +28,14 @@ namespace MessageBoard.Models
 
             return groupList;
         }
+        public static Group GetSpecificGroup(int id)
+        {
+            var apiCallTask = ApiHelper.ApiGetSpecificGroup(id);
+            var result = apiCallTask.Result;
+            JObject jsonResponse = JsonConvert.DeserializeObject<JObject>(result);
+            Group specificgroup = JsonConvert.DeserializeObject<Group>(jsonResponse.ToString());
+            return specificgroup;
+            
+        }
     }
 }

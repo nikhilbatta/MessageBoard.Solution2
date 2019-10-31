@@ -18,10 +18,10 @@ namespace MessageBoard.MVC.Controllers
             return View(allGroups);
         }
 
-        public IActionResult Details()
+        public IActionResult Details(int id)
         {
-            
-            return View();
+            var specificgroup = Group.GetSpecificGroup(id);
+            return View(specificgroup);
         }
         [HttpGet]
         public IActionResult CreateWay()
@@ -35,6 +35,22 @@ namespace MessageBoard.MVC.Controllers
             User1.CreateUser(newUser);
             return RedirectToAction("Index");
 
+        }
+        [HttpGet]
+        public IActionResult NewPost(int id)
+        {
+            Console.WriteLine(id);
+            ViewBag.Data = id;
+            return View();
+        }
+        [HttpPost]
+        public IActionResult NewPost(Post post)
+        {
+            Console.WriteLine(post.GroupId);
+            Console.WriteLine(post.UserName);
+            Console.WriteLine(post.Body);
+            Post.CreatePost(post);
+            return RedirectToAction("Index");
         }
         [HttpGet]
         public IActionResult Login()

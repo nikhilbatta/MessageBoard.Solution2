@@ -25,12 +25,9 @@ namespace MessageBoard.Models
     public static async Task<string> ApiCallNewUser(User1 newUser)
     {
       RestClient client = new RestClient("http://localhost:4000/users/create");
-      Console.WriteLine(client);
-      Console.WriteLine("this is a console log from apihelper" + newUser.Username);
       RestRequest request = new RestRequest(Method.POST);
       request.AddJsonBody(newUser);
       var response = await client.ExecuteTaskAsync(request);
-      System.Console.WriteLine(response.ResponseStatus);
       return response.Content;
       
     }
@@ -40,7 +37,23 @@ namespace MessageBoard.Models
       RestRequest request = new RestRequest(Method.POST);
       request.AddJsonBody(loggedInUser);
       var response = await client.ExecuteTaskAsync(request);
-      Console.WriteLine(response.ResponseStatus);
+      return response.Content;
+    }
+    public static async Task<string> ApiGetSpecificGroup(int id)
+    {
+      RestClient client = new RestClient("http://localhost:4000/api");
+      RestRequest request = new RestRequest("/group/{id}", Method.GET);
+      request.AddUrlSegment("id", id);
+      var response = await client.ExecuteTaskAsync(request);
+      return response.Content;
+    }
+    public static async Task<string> ApiPostToSpecificGroup(Post post)
+    {
+      RestClient client = new RestClient("http://localhost:4000/api");
+      RestRequest request = new RestRequest("/post/{id}", Method.POST);
+      request.AddUrlSegment("id", post.GroupId);
+      request.AddJsonBody(post);
+      var response = await client.ExecuteTaskAsync(request);
       return response.Content;
     }
   }

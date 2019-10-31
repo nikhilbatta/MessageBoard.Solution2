@@ -54,9 +54,8 @@ namespace MessageBoard.Controllers
         }
 
         [HttpPost("{id}")]
-        public void Post([FromBody] Post post, int groupId)
+        public void Post([FromBody] Post post)
         {
-            post.GroupId = groupId;
             _db.Posts.Add(post);
             _db.SaveChanges();
         }

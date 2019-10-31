@@ -1,0 +1,11 @@
+@using MessageBoard.Models
+@{
+    int counter = 0;
+}
+<h1>Welcome To The @Model.Title Group</h1>
+@foreach(Post post in @Model.Posts)
+{
+    <p> Post @(++counter)</p>
+    <p>@post.Body</p>
+}
+@Html.ActionLink("new post for this group", "NewPost", "Group", new {id = Model.GroupId})

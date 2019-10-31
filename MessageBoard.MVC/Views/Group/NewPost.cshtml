@@ -1,0 +1,17 @@
+@model MessageBoard.Models.Post;
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Title)
+    @Html.TextBoxFor(model => model.Title)
+    @Html.LabelFor(model => model.Body)
+    @Html.TextBoxFor(model => model.Body)
+    @Html.LabelFor(model => model.UserName)
+    @Html.TextBoxFor(model => model.UserName)
+    @Html.LabelFor(model => model.DateOfPost)
+    @Html.TextBoxFor(model => model.DateOfPost)
+    <input id="GroupId" name="GroupId" type="hidden" value="@ViewBag.Data" />
+    @Html.TextBoxFor(model => model.user.Id)
+
+    <input type="submit" value="Add new item" class="btn btn-default" />
+}
