@@ -13,6 +13,8 @@ namespace MessageBoard.MVC.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.Data = "Value,Value1,Value2,Value3"; //list of strings that you need to show on the chart. as mentioned in the example from c-sharpcorner
+            ViewBag.ObjectName = "Test,Test1,Test2,Test3";
             var allGroups = Group.GetAllGroups();
             return View(allGroups);
         }
